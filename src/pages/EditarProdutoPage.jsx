@@ -47,7 +47,7 @@ export default function EditarProdutoPage() {
       } else {
         toast.success('Produto atualizado com sucesso.')
       }
-      navegar('/')
+      navegar('/produtos')
     } catch (e) {
       toast.error('Erro ao atualizar o produto.')
       console.error(e)
@@ -58,7 +58,7 @@ export default function EditarProdutoPage() {
 
   return (
     <div className="mx-auto max-w-xl px-4 py-8 sm:px-6">
-      <Link to="/" className="text-sm text-slate-500 hover:text-slate-700">
+      <Link to="/produtos" className="text-sm text-slate-500 hover:text-slate-700">
         ← Voltar para produtos
       </Link>
       <h1 className="mt-2 text-2xl font-bold text-slate-900">Editar produto</h1>

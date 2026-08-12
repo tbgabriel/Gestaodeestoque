@@ -12,6 +12,19 @@ export async function registrarMovimentacao({ produto_id, tipo, quantidade, obse
   return data
 }
 
+export async function listarUltimasMovimentacoes(limite = 8) {
+  const { data, error } = await supabase
+    .from('movimentacoes_estoque')
+    .select(
+      'id, tipo, quantidade, created_at, produto_id, produto:produto_id (nome), venda:venda_id (cliente:cliente_id (nome))'
+    )
+    .order('created_at', { ascending: false })
+    .limit(limite)
+
+  if (error) throw error
+  return data
+}
+
 export async function listarMovimentacoes(produtoId) {
   const { data, error } = await supabase
     .from('movimentacoes_estoque')

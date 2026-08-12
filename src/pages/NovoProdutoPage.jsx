@@ -13,7 +13,7 @@ export default function NovoProdutoPage() {
     try {
       await criarProduto(dadosProduto)
       toast.success('Produto cadastrado com sucesso.')
-      navegar('/')
+      navegar('/produtos')
     } catch (e) {
       toast.error('Erro ao cadastrar o produto.')
       console.error(e)
@@ -24,7 +24,7 @@ export default function NovoProdutoPage() {
 
   return (
     <div className="mx-auto max-w-xl px-4 py-8 sm:px-6">
-      <Link to="/" className="text-sm text-slate-500 hover:text-slate-700">
+      <Link to="/produtos" className="text-sm text-slate-500 hover:text-slate-700">
         ← Voltar para produtos
       </Link>
       <h1 className="mt-2 text-2xl font-bold text-slate-900">Novo produto</h1>

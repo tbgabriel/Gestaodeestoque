@@ -16,6 +16,14 @@ export default function Layout() {
               `${linkBase} ${isActive ? 'bg-violet-100 text-violet-700' : 'text-slate-600 hover:bg-slate-100'}`
             }
           >
+            Dashboard
+          </NavLink>
+          <NavLink
+            to="/produtos"
+            className={({ isActive }) =>
+              `${linkBase} ${isActive ? 'bg-violet-100 text-violet-700' : 'text-slate-600 hover:bg-slate-100'}`
+            }
+          >
             Produtos
           </NavLink>
           <NavLink

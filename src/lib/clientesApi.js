@@ -10,6 +10,15 @@ export async function listarClientes() {
   return data
 }
 
+export async function contarClientes() {
+  const { count, error } = await supabase
+    .from('clientes')
+    .select('*', { count: 'exact', head: true })
+
+  if (error) throw error
+  return count
+}
+
 export async function buscarCliente(id) {
   const { data, error } = await supabase
     .from('clientes')
