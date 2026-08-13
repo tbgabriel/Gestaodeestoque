@@ -4,6 +4,7 @@ import toast from 'react-hot-toast'
 import { listarProdutos, excluirProduto } from '../lib/produtosApi'
 import { registrarMovimentacao } from '../lib/movimentacoesApi'
 import ProdutoCard from '../components/ProdutoCard'
+import ProdutosTable from '../components/ProdutosTable'
 import ConfirmDialog from '../components/ConfirmDialog'
 import ModalMovimentacaoEstoque from '../components/ModalMovimentacaoEstoque'
 
@@ -37,10 +38,8 @@ export default function ProdutosPage() {
   async function lidarComRegistrarMovimentacao(dadosMovimentacao) {
     setRegistrandoMovimentacao(true)
     try {
-      const produtoAtualizado = await registrarMovimentacao(dadosMovimentacao)
-      setProdutos((atual) =>
-        atual.map((p) => (p.id === produtoAtualizado.id ? produtoAtualizado : p))
-      )
+      await registrarMovimentacao(dadosMovimentacao)
+      await carregarProdutos()
       toast.success(
         dadosMovimentacao.tipo === 'entrada' ? 'Entrada registrada.' : 'Saída registrada.'
       )
@@ -62,7 +61,17 @@ export default function ProdutosPage() {
       toast.success('Produto excluído com sucesso.')
       setProdutoParaExcluir(null)
     } catch (e) {
-      toast.error('Erro ao excluir o produto.')
+      if (e.code === '23503' && e.details?.includes('kit_itens')) {
+        toast.error(
+          `Não é possível excluir "${produtoParaExcluir.nome}": ele é usado como item dentro de um kit. Remova-o do kit primeiro (tela de editar o kit → "Itens deste kit").`
+        )
+      } else if (e.code === '23503' && e.details?.includes('venda_itens')) {
+        toast.error(
+          `Não é possível excluir "${produtoParaExcluir.nome}": ele já tem vendas registradas no histórico.`
+        )
+      } else {
+        toast.error('Erro ao excluir o produto.')
+      }
       console.error(e)
     } finally {
       setExcluindo(false)
@@ -110,16 +119,26 @@ export default function ProdutosPage() {
       )}
 
       {!carregando && !erro && produtos.length > 0 && (
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {produtos.map((produto) => (
-            <ProdutoCard
-              key={produto.id}
-              produto={produto}
+        <>
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:hidden">
+            {produtos.map((produto) => (
+              <ProdutoCard
+                key={produto.id}
+                produto={produto}
+                aoExcluir={setProdutoParaExcluir}
+                aoMovimentar={setProdutoParaMovimentar}
+              />
+            ))}
+          </div>
+
+          <div className="mt-6 hidden md:block">
+            <ProdutosTable
+              produtos={produtos}
               aoExcluir={setProdutoParaExcluir}
               aoMovimentar={setProdutoParaMovimentar}
             />
-          ))}
-        </div>
+          </div>
+        </>
       )}
 
       <ConfirmDialog

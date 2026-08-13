@@ -1,9 +1,12 @@
 import { NavLink, Outlet } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 const linkBase =
   'rounded-lg px-3 py-2 text-sm font-medium transition-colors'
 
 export default function Layout() {
+  const { usuario, sair } = useAuth()
+
   return (
     <div className="min-h-screen bg-slate-50">
       <header className="border-b border-slate-200 bg-white">
@@ -42,6 +45,19 @@ export default function Layout() {
           >
             Vendas
           </NavLink>
+
+          <div className="ml-auto flex items-center gap-3">
+            {usuario?.email && (
+              <span className="hidden text-sm text-slate-500 sm:inline">{usuario.email}</span>
+            )}
+            <button
+              type="button"
+              onClick={sair}
+              className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100"
+            >
+              Sair
+            </button>
+          </div>
         </nav>
       </header>
       <Outlet />

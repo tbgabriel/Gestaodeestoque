@@ -91,7 +91,7 @@ export default function NovaVendaPage() {
       toast.success('Venda registrada com sucesso.')
       navegar('/vendas')
     } catch (e) {
-      toast.error('Erro ao registrar a venda.')
+      toast.error(e.message || 'Erro ao registrar a venda.')
       console.error(e)
     } finally {
       setSalvando(false)
