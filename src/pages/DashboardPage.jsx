@@ -64,12 +64,12 @@ export default function DashboardPage() {
       {!carregando && !erro && (
         <>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
               <p className="text-sm text-slate-500">Produtos cadastrados</p>
               <p className="mt-1 text-3xl font-bold text-slate-900">{produtos.length}</p>
             </div>
             <div
-              className={`rounded-xl border p-5 shadow-sm ${
+              className={`rounded-lg border p-5 shadow-sm ${
                 produtosEstoqueBaixo.length > 0
                   ? 'border-red-300 bg-red-50'
                   : 'border-slate-200 bg-white'
@@ -86,14 +86,14 @@ export default function DashboardPage() {
                 {produtosEstoqueBaixo.length}
               </p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
               <p className="text-sm text-slate-500">Clientes cadastrados</p>
               <p className="mt-1 text-3xl font-bold text-slate-900">{totalClientes}</p>
             </div>
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
               <h2 className="text-lg font-semibold text-slate-900">Estoque baixo</h2>
 
               {produtosEstoqueBaixo.length === 0 ? (
@@ -106,7 +106,7 @@ export default function DashboardPage() {
                     <li key={produto.id}>
                       <Link
                         to={`/produtos/${produto.id}/editar`}
-                        className="flex items-center justify-between gap-3 rounded-lg border border-red-300 bg-red-50 px-4 py-3 hover:bg-red-100"
+                        className="flex items-center justify-between gap-3 rounded-lg border border-red-300 bg-red-50 px-4 py-3 transition-colors hover:bg-red-100"
                       >
                         <span className="text-sm font-medium text-slate-800">{produto.nome}</span>
                         <span className="shrink-0 text-sm font-semibold text-red-700">
@@ -119,7 +119,7 @@ export default function DashboardPage() {
               )}
             </section>
 
-            <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
               <h2 className="text-lg font-semibold text-slate-900">Últimas movimentações</h2>
 
               {ultimasMovimentacoes.length === 0 ? (

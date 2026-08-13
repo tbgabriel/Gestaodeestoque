@@ -106,7 +106,7 @@ export default function GerenciadorItensKit({ kitId }) {
   )
 
   return (
-    <div className="mt-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+    <div className="mt-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
       <h2 className="text-lg font-semibold text-slate-900">Itens deste kit</h2>
       <p className="mt-1 text-sm text-slate-500">
         Escolha quais produtos compõem este kit e em qual quantidade.
@@ -143,12 +143,12 @@ export default function GerenciadorItensKit({ kitId }) {
                       step="1"
                       value={item.quantidade}
                       onChange={(e) => lidarComAtualizarQuantidade(item, e.target.value)}
-                      className="w-16 rounded-lg border border-slate-300 px-2 py-1 text-center text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+                      className="w-16 rounded-lg border border-slate-300 px-2 py-1 text-center text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
                     />
                     <button
                       type="button"
                       onClick={() => lidarComRemover(item)}
-                      className="rounded-lg border border-red-300 px-2.5 py-1 text-xs font-medium text-red-600 hover:bg-red-50"
+                      className="rounded-lg border border-red-300 px-2.5 py-1 text-xs font-medium text-red-600 transition-colors hover:bg-red-50"
                     >
                       Remover
                     </button>
@@ -170,7 +170,7 @@ export default function GerenciadorItensKit({ kitId }) {
                 id="produto_kit"
                 value={produtoSelecionado}
                 onChange={(e) => setProdutoSelecionado(e.target.value)}
-                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
               >
                 <option value="">
                   {produtosParaSelecionar.length === 0
@@ -195,13 +195,13 @@ export default function GerenciadorItensKit({ kitId }) {
                 step="1"
                 value={quantidadeNova}
                 onChange={(e) => setQuantidadeNova(e.target.value)}
-                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
               />
             </div>
             <button
               type="submit"
               disabled={adicionando || produtosParaSelecionar.length === 0}
-              className="inline-flex justify-center rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-violet-700 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="inline-flex justify-center rounded-lg bg-amber-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-amber-700 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {adicionando ? 'Adicionando...' : 'Adicionar'}
             </button>

@@ -57,7 +57,7 @@ export default function ClientesPage() {
         </div>
         <Link
           to="/clientes/novo"
-          className="inline-flex justify-center rounded-lg bg-violet-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-violet-700"
+          className="inline-flex justify-center rounded-lg bg-amber-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-amber-700"
         >
           + Novo cliente
         </Link>
@@ -78,7 +78,7 @@ export default function ClientesPage() {
           <p className="text-slate-500">Nenhum cliente cadastrado ainda.</p>
           <Link
             to="/clientes/novo"
-            className="mt-3 inline-block text-sm font-medium text-violet-600 hover:text-violet-700"
+            className="mt-3 inline-block text-sm font-medium text-amber-600 transition-colors hover:text-amber-700"
           >
             Cadastrar o primeiro cliente
           </Link>
@@ -86,7 +86,7 @@ export default function ClientesPage() {
       )}
 
       {!carregando && !erro && clientes.length > 0 && (
-        <div className="mt-6 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+        <div className="mt-6 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
           <ul className="divide-y divide-slate-100">
             {clientes.map((cliente) => (
               <li
@@ -100,14 +100,14 @@ export default function ClientesPage() {
                 <div className="flex gap-2">
                   <Link
                     to={`/clientes/${cliente.id}/editar`}
-                    className="flex-1 rounded-lg border border-slate-300 px-3 py-1.5 text-center text-sm font-medium text-slate-700 hover:bg-slate-50 sm:flex-none"
+                    className="flex-1 rounded-lg border border-slate-300 px-3 py-1.5 text-center text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 sm:flex-none"
                   >
                     Editar
                   </Link>
                   <button
                     type="button"
                     onClick={() => setClienteParaExcluir(cliente)}
-                    className="flex-1 rounded-lg border border-red-300 px-3 py-1.5 text-sm font-medium text-red-600 hover:bg-red-50 sm:flex-none"
+                    className="flex-1 rounded-lg border border-red-300 px-3 py-1.5 text-sm font-medium text-red-600 transition-colors hover:bg-red-50 sm:flex-none"
                   >
                     Excluir
                   </button>

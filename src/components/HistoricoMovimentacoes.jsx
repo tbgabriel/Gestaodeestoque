@@ -34,7 +34,7 @@ export default function HistoricoMovimentacoes({ produtoId }) {
   }, [produtoId])
 
   return (
-    <div className="mt-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+    <div className="mt-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
       <h2 className="text-lg font-semibold text-slate-900">Histórico de movimentações</h2>
       <p className="mt-1 text-sm text-slate-500">Últimas 20 entradas e saídas deste produto.</p>
 

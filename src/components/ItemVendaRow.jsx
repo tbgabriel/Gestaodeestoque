@@ -21,7 +21,7 @@ export default function ItemVendaRow({ item, produtos, aoAtualizar, aoRemover })
         <select
           value={item.produto_id}
           onChange={(e) => lidarComTrocaProduto(e.target.value)}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
         >
           <option value="">Selecione...</option>
           {produtos.map((p) => (
@@ -40,7 +40,7 @@ export default function ItemVendaRow({ item, produtos, aoAtualizar, aoRemover })
           step="1"
           value={item.quantidade}
           onChange={(e) => aoAtualizar({ ...item, quantidade: e.target.value })}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
         />
       </div>
 
@@ -52,7 +52,7 @@ export default function ItemVendaRow({ item, produtos, aoAtualizar, aoRemover })
           step="0.01"
           value={item.preco_unitario}
           onChange={(e) => aoAtualizar({ ...item, preco_unitario: e.target.value })}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
         />
       </div>
 
@@ -64,7 +64,7 @@ export default function ItemVendaRow({ item, produtos, aoAtualizar, aoRemover })
       <button
         type="button"
         onClick={aoRemover}
-        className="rounded-lg border border-red-300 px-3 py-2 text-xs font-medium text-red-600 hover:bg-red-50"
+        className="rounded-lg border border-red-300 px-3 py-2 text-xs font-medium text-red-600 transition-colors hover:bg-red-50"
       >
         Remover
       </button>

@@ -41,7 +41,7 @@ export default function VendaDetalhesPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6">
-      <Link to="/vendas" className="text-sm text-slate-500 hover:text-slate-700">
+      <Link to="/vendas" className="text-sm text-slate-500 transition-colors hover:text-slate-700">
         ← Voltar para vendas
       </Link>
       <h1 className="mt-2 text-2xl font-bold text-slate-900">Detalhes da venda</h1>
@@ -56,7 +56,7 @@ export default function VendaDetalhesPage() {
 
       {!carregando && venda && (
         <div className="mt-6 space-y-6">
-          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div>
                 <p className="text-xs font-medium text-slate-400">Cliente</p>
@@ -80,7 +80,7 @@ export default function VendaDetalhesPage() {
             )}
           </div>
 
-          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-lg font-semibold text-slate-900">Itens</h2>
             <ul className="mt-4 divide-y divide-slate-100">
               {venda.itens.map((item) => (

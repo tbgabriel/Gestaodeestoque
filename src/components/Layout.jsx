@@ -13,7 +13,7 @@ export default function Layout() {
             to="/"
             end
             className={({ isActive }) =>
-              `${linkBase} ${isActive ? 'bg-violet-100 text-violet-700' : 'text-slate-600 hover:bg-slate-100'}`
+              `${linkBase} ${isActive ? 'bg-amber-100 text-amber-700' : 'text-slate-600 hover:bg-slate-100'}`
             }
           >
             Dashboard
@@ -21,7 +21,7 @@ export default function Layout() {
           <NavLink
             to="/produtos"
             className={({ isActive }) =>
-              `${linkBase} ${isActive ? 'bg-violet-100 text-violet-700' : 'text-slate-600 hover:bg-slate-100'}`
+              `${linkBase} ${isActive ? 'bg-amber-100 text-amber-700' : 'text-slate-600 hover:bg-slate-100'}`
             }
           >
             Produtos
@@ -29,7 +29,7 @@ export default function Layout() {
           <NavLink
             to="/clientes"
             className={({ isActive }) =>
-              `${linkBase} ${isActive ? 'bg-violet-100 text-violet-700' : 'text-slate-600 hover:bg-slate-100'}`
+              `${linkBase} ${isActive ? 'bg-amber-100 text-amber-700' : 'text-slate-600 hover:bg-slate-100'}`
             }
           >
             Clientes
@@ -37,7 +37,7 @@ export default function Layout() {
           <NavLink
             to="/vendas"
             className={({ isActive }) =>
-              `${linkBase} ${isActive ? 'bg-violet-100 text-violet-700' : 'text-slate-600 hover:bg-slate-100'}`
+              `${linkBase} ${isActive ? 'bg-amber-100 text-amber-700' : 'text-slate-600 hover:bg-slate-100'}`
             }
           >
             Vendas

@@ -10,14 +10,14 @@ export default function ProdutoCard({ produto, aoExcluir, aoMovimentar }) {
 
   return (
     <div
-      className={`rounded-xl border bg-white p-5 shadow-sm transition-colors ${
+      className={`rounded-lg border bg-white p-5 shadow-sm transition-colors ${
         estoqueBaixo ? 'border-red-300 bg-red-50' : 'border-slate-200'
       }`}
     >
       <div className="flex items-start justify-between gap-2">
         <h3 className="font-semibold text-slate-900 leading-snug">{produto.nome}</h3>
         {produto.eh_kit && (
-          <span className="shrink-0 rounded-full bg-violet-100 px-2.5 py-0.5 text-xs font-medium text-violet-700">
+          <span className="shrink-0 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-700">
             KIT
           </span>
         )}
@@ -60,20 +60,20 @@ export default function ProdutoCard({ produto, aoExcluir, aoMovimentar }) {
         <button
           type="button"
           onClick={() => aoMovimentar(produto)}
-          className="rounded-lg border border-violet-300 px-2 py-1.5 text-xs sm:text-sm font-medium text-violet-700 hover:bg-violet-50"
+          className="whitespace-nowrap rounded-lg border border-amber-300 px-1.5 py-1.5 text-center text-xs font-medium text-amber-700 transition-colors hover:bg-amber-50"
         >
           Movimentar
         </button>
         <Link
           to={`/produtos/${produto.id}/editar`}
-          className="rounded-lg border border-slate-300 px-2 py-1.5 text-center text-xs sm:text-sm font-medium text-slate-700 hover:bg-slate-50"
+          className="whitespace-nowrap rounded-lg border border-slate-300 px-1.5 py-1.5 text-center text-xs font-medium text-slate-700 transition-colors hover:bg-slate-50"
         >
           Editar
         </Link>
         <button
           type="button"
           onClick={() => aoExcluir(produto)}
-          className="rounded-lg border border-red-300 px-2 py-1.5 text-xs sm:text-sm font-medium text-red-600 hover:bg-red-50"
+          className="whitespace-nowrap rounded-lg border border-red-300 px-1.5 py-1.5 text-center text-xs font-medium text-red-600 transition-colors hover:bg-red-50"
         >
           Excluir
         </button>

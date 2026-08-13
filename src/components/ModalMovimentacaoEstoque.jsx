@@ -23,7 +23,7 @@ export default function ModalMovimentacaoEstoque({ produto, registrando, aoRegis
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
-      <div className="w-full max-w-sm rounded-xl bg-white p-6 shadow-lg">
+      <div className="w-full max-w-sm rounded-lg bg-white p-6 shadow-lg">
         <h2 className="text-lg font-semibold text-slate-900">Movimentar estoque</h2>
         <p className="mt-1 text-sm text-slate-500">
           {produto.nome} — estoque atual: <span className="font-medium">{produto.quantidade}</span>
@@ -72,7 +72,7 @@ export default function ModalMovimentacaoEstoque({ produto, registrando, aoRegis
               step="1"
               value={quantidade}
               onChange={(e) => setQuantidade(e.target.value)}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
               autoFocus
             />
           </div>
@@ -87,7 +87,7 @@ export default function ModalMovimentacaoEstoque({ produto, registrando, aoRegis
               value={observacao}
               onChange={(e) => setObservacao(e.target.value)}
               placeholder={tipo === 'entrada' ? 'Ex: Compra fornecedor X' : 'Ex: Venda balcão'}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             />
           </div>
 
@@ -96,14 +96,14 @@ export default function ModalMovimentacaoEstoque({ produto, registrando, aoRegis
               type="button"
               onClick={aoCancelar}
               disabled={registrando}
-              className="rounded-lg px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 disabled:opacity-60"
+              className="rounded-lg px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 disabled:opacity-60"
             >
               Cancelar
             </button>
             <button
               type="submit"
               disabled={registrando}
-              className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-60"
+              className="rounded-lg bg-amber-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-amber-700 disabled:opacity-60"
             >
               {registrando ? 'Registrando...' : 'Confirmar'}
             </button>

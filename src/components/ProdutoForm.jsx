@@ -73,7 +73,7 @@ export default function ProdutoForm({
           type="text"
           value={form.nome}
           onChange={(e) => atualizarCampo('nome', e.target.value)}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           placeholder="Ex: Shampoo Profissional 1L"
         />
       </div>
@@ -87,7 +87,7 @@ export default function ProdutoForm({
           type="text"
           value={form.categoria ?? ''}
           onChange={(e) => atualizarCampo('categoria', e.target.value)}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           placeholder="Ex: Shampoo, Coloração, Ferramentas..."
         />
       </div>
@@ -104,7 +104,7 @@ export default function ProdutoForm({
             step="0.01"
             value={form.preco_custo}
             onChange={(e) => atualizarCampo('preco_custo', e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             placeholder="0,00"
           />
         </div>
@@ -119,7 +119,7 @@ export default function ProdutoForm({
             step="0.01"
             value={form.preco_venda}
             onChange={(e) => atualizarCampo('preco_venda', e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             placeholder="0,00"
           />
         </div>
@@ -137,7 +137,7 @@ export default function ProdutoForm({
             step="1"
             value={form.quantidade}
             onChange={(e) => atualizarCampo('quantidade', e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           />
         </div>
         <div>
@@ -151,7 +151,7 @@ export default function ProdutoForm({
             step="1"
             value={form.estoque_minimo}
             onChange={(e) => atualizarCampo('estoque_minimo', e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           />
         </div>
       </div>
@@ -162,7 +162,7 @@ export default function ProdutoForm({
           type="checkbox"
           checked={form.eh_kit}
           onChange={(e) => atualizarCampo('eh_kit', e.target.checked)}
-          className="h-4 w-4 rounded border-slate-300 text-violet-600 focus:ring-violet-500"
+          className="h-4 w-4 rounded border-slate-300 text-amber-600 focus:ring-amber-500"
         />
         <label htmlFor="eh_kit" className="text-sm font-medium text-slate-700">
           Este produto é um kit?
@@ -172,7 +172,7 @@ export default function ProdutoForm({
       <button
         type="submit"
         disabled={salvando}
-        className="w-full sm:w-auto inline-flex justify-center rounded-lg bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-violet-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+        className="w-full sm:w-auto inline-flex justify-center rounded-lg bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-amber-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
       >
         {salvando ? 'Salvando...' : textoBotao}
       </button>

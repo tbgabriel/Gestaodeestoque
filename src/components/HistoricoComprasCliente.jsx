@@ -41,7 +41,7 @@ export default function HistoricoComprasCliente({ clienteId }) {
   const totalGasto = vendas.reduce((soma, v) => soma + (v.total || 0), 0)
 
   return (
-    <div className="mt-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+    <div className="mt-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold text-slate-900">Histórico de compras</h2>
         {vendas.length > 0 && (
@@ -69,7 +69,7 @@ export default function HistoricoComprasCliente({ clienteId }) {
             <li key={venda.id}>
               <Link
                 to={`/vendas/${venda.id}`}
-                className="flex items-center justify-between gap-3 py-3 hover:bg-slate-50"
+                className="flex items-center justify-between gap-3 py-3 transition-colors hover:bg-slate-50"
               >
                 <div>
                   <p className="text-sm font-medium text-slate-800">

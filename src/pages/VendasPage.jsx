@@ -50,7 +50,7 @@ export default function VendasPage() {
         </div>
         <Link
           to="/vendas/nova"
-          className="inline-flex justify-center rounded-lg bg-violet-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-violet-700"
+          className="inline-flex justify-center rounded-lg bg-amber-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-amber-700"
         >
           + Nova venda
         </Link>
@@ -69,7 +69,7 @@ export default function VendasPage() {
           <p className="text-slate-500">Nenhuma venda registrada ainda.</p>
           <Link
             to="/vendas/nova"
-            className="mt-3 inline-block text-sm font-medium text-violet-600 hover:text-violet-700"
+            className="mt-3 inline-block text-sm font-medium text-amber-600 transition-colors hover:text-amber-700"
           >
             Registrar a primeira venda
           </Link>
@@ -77,13 +77,13 @@ export default function VendasPage() {
       )}
 
       {!carregando && !erro && vendas.length > 0 && (
-        <div className="mt-6 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+        <div className="mt-6 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
           <ul className="divide-y divide-slate-100">
             {vendas.map((venda) => (
               <li key={venda.id}>
                 <Link
                   to={`/vendas/${venda.id}`}
-                  className="flex flex-col gap-1 px-4 py-4 hover:bg-slate-50 sm:flex-row sm:items-center sm:justify-between sm:px-6"
+                  className="flex flex-col gap-1 px-4 py-4 transition-colors hover:bg-slate-50 sm:flex-row sm:items-center sm:justify-between sm:px-6"
                 >
                   <div>
                     <p className="font-medium text-slate-900">

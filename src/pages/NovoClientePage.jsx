@@ -24,12 +24,12 @@ export default function NovoClientePage() {
 
   return (
     <div className="mx-auto max-w-xl px-4 py-8 sm:px-6">
-      <Link to="/clientes" className="text-sm text-slate-500 hover:text-slate-700">
+      <Link to="/clientes" className="text-sm text-slate-500 transition-colors hover:text-slate-700">
         ← Voltar para clientes
       </Link>
       <h1 className="mt-2 text-2xl font-bold text-slate-900">Novo cliente</h1>
 
-      <div className="mt-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="mt-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
         <ClienteForm aoSalvar={lidarComSalvar} salvando={salvando} textoBotao="Cadastrar cliente" />
       </div>
     </div>
