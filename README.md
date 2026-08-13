@@ -27,31 +27,6 @@ Construí esse sistema pra resolver esse problema de verdade — e de quebra, us
 - Tailwind CSS
 - Supabase (banco de dados + autenticação)
 
-## Como rodar localmente
-
-1. Clone o repositório:
-
-```bash
-git clone https://github.com/tbgabriel/Gestaodeestoque.git
-cd Gestaodeestoque
-```
-
-2. Instale as dependências:
-
-```bash
-npm install
-```
-
-3. Configure as variáveis de ambiente — copie o `.env.example` pra um `.env` e preencha com a URL e a chave `anon` do seu projeto Supabase:
-
-```bash
-cp .env.example .env
-```
-
-4. Crie as tabelas no banco: rode os scripts SQL que estão na pasta `supabase/` no SQL Editor do seu projeto Supabase (na ordem em que aparecem lá).
-
-5. Crie seu usuário de login direto no painel do Supabase (Authentication → Users → Add user) — não tem tela de cadastro no sistema, os usuários são criados manualmente mesmo.
-
 6. Rode o projeto:
 
 ```bash
