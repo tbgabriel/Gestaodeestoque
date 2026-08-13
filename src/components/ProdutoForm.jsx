@@ -104,7 +104,7 @@ export default function ProdutoForm({
             step="0.01"
             value={form.preco_custo}
             onChange={(e) => atualizarCampo('preco_custo', e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+            className="min-h-11 w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             placeholder="0,00"
           />
         </div>
@@ -119,7 +119,7 @@ export default function ProdutoForm({
             step="0.01"
             value={form.preco_venda}
             onChange={(e) => atualizarCampo('preco_venda', e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+            className="min-h-11 w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             placeholder="0,00"
           />
         </div>
@@ -137,7 +137,7 @@ export default function ProdutoForm({
             step="1"
             value={form.quantidade}
             onChange={(e) => atualizarCampo('quantidade', e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+            className="min-h-11 w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           />
         </div>
         <div>
@@ -151,28 +151,26 @@ export default function ProdutoForm({
             step="1"
             value={form.estoque_minimo}
             onChange={(e) => atualizarCampo('estoque_minimo', e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+            className="min-h-11 w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           />
         </div>
       </div>
 
-      <div className="flex items-center gap-2">
+      <label htmlFor="eh_kit" className="flex min-h-11 cursor-pointer items-center gap-2">
         <input
           id="eh_kit"
           type="checkbox"
           checked={form.eh_kit}
           onChange={(e) => atualizarCampo('eh_kit', e.target.checked)}
-          className="h-4 w-4 rounded border-slate-300 text-amber-600 focus:ring-amber-500"
+          className="h-4 w-4 shrink-0 rounded border-slate-300 text-amber-600 focus:ring-amber-500"
         />
-        <label htmlFor="eh_kit" className="text-sm font-medium text-slate-700">
-          Este produto é um kit?
-        </label>
-      </div>
+        <span className="text-sm font-medium text-slate-700">Este produto é um kit?</span>
+      </label>
 
       <button
         type="submit"
         disabled={salvando}
-        className="w-full sm:w-auto inline-flex justify-center rounded-lg bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-amber-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+        className="min-h-11 w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-amber-600 px-5 text-sm font-semibold text-white shadow-sm hover:bg-amber-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
       >
         {salvando ? 'Salvando...' : textoBotao}
       </button>

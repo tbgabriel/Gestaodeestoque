@@ -90,7 +90,7 @@ export default function ProdutosPage() {
         </div>
         <Link
           to="/produtos/novo"
-          className="inline-flex justify-center rounded-lg bg-amber-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-amber-700"
+          className="inline-flex min-h-11 items-center justify-center rounded-lg bg-amber-600 px-4 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-amber-700"
         >
           + Novo produto
         </Link>
@@ -120,7 +120,7 @@ export default function ProdutosPage() {
 
       {!carregando && !erro && produtos.length > 0 && (
         <>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:hidden">
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:hidden">
             {produtos.map((produto) => (
               <ProdutoCard
                 key={produto.id}
@@ -131,7 +131,7 @@ export default function ProdutosPage() {
             ))}
           </div>
 
-          <div className="mt-6 hidden md:block">
+          <div className="mt-6 hidden sm:block">
             <ProdutosTable
               produtos={produtos}
               aoExcluir={setProdutoParaExcluir}

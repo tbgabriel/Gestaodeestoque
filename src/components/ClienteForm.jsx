@@ -62,7 +62,7 @@ export default function ClienteForm({
           type="text"
           value={form.nome}
           onChange={(e) => atualizarCampo('nome', e.target.value)}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+          className="min-h-11 w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           placeholder="Ex: Salão Beleza Pura"
         />
       </div>
@@ -76,7 +76,7 @@ export default function ClienteForm({
           type="tel"
           value={form.telefone}
           onChange={(e) => atualizarCampo('telefone', e.target.value)}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+          className="min-h-11 w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           placeholder="Ex: (11) 91234-5678"
         />
       </div>
@@ -84,7 +84,7 @@ export default function ClienteForm({
       <button
         type="submit"
         disabled={salvando}
-        className="w-full sm:w-auto inline-flex justify-center rounded-lg bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-amber-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+        className="min-h-11 w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-amber-600 px-5 text-sm font-semibold text-white shadow-sm hover:bg-amber-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
       >
         {salvando ? 'Salvando...' : textoBotao}
       </button>

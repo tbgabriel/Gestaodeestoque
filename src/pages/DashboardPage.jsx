@@ -106,9 +106,9 @@ export default function DashboardPage() {
                     <li key={produto.id}>
                       <Link
                         to={`/produtos/${produto.id}/editar`}
-                        className="flex items-center justify-between gap-3 rounded-lg border border-red-300 bg-red-50 px-4 py-3 transition-colors hover:bg-red-100"
+                        className="flex min-h-11 items-center justify-between gap-3 rounded-lg border border-red-300 bg-red-50 px-4 py-3 transition-colors hover:bg-red-100"
                       >
-                        <span className="text-sm font-medium text-slate-800">{produto.nome}</span>
+                        <span className="min-w-0 truncate text-sm font-medium text-slate-800">{produto.nome}</span>
                         <span className="shrink-0 text-sm font-semibold text-red-700">
                           {produto.quantidade} / mín. {produto.estoque_minimo}
                         </span>
@@ -127,32 +127,30 @@ export default function DashboardPage() {
               ) : (
                 <ul className="mt-4 divide-y divide-slate-100">
                   {ultimasMovimentacoes.map((mov) => (
-                    <li key={mov.id} className="py-3">
-                      <div className="flex items-center justify-between gap-3">
-                        <div className="flex items-center gap-3">
-                          <span
-                            className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold ${
-                              mov.tipo === 'entrada'
-                                ? 'bg-emerald-100 text-emerald-700'
-                                : 'bg-red-100 text-red-700'
-                            }`}
-                          >
-                            {mov.tipo === 'entrada' ? '↑ Entrada' : '↓ Saída'}
-                          </span>
-                          <div>
-                            <p className="text-sm font-medium text-slate-800">
-                              {mov.produto?.nome ?? 'Produto removido'}
-                            </p>
-                            <p className="text-xs text-slate-400">
-                              {mov.quantidade} unidade{mov.quantidade === 1 ? '' : 's'}
-                              {mov.venda?.cliente?.nome ? ` — ${mov.venda.cliente.nome}` : ''}
-                            </p>
-                          </div>
-                        </div>
-                        <span className="shrink-0 text-xs text-slate-400">
-                          {formatarData(mov.created_at)}
+                    <li key={mov.id} className="flex flex-col gap-1 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+                      <div className="flex min-w-0 items-start gap-3">
+                        <span
+                          className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                            mov.tipo === 'entrada'
+                              ? 'bg-emerald-100 text-emerald-700'
+                              : 'bg-red-100 text-red-700'
+                          }`}
+                        >
+                          {mov.tipo === 'entrada' ? '↑ Entrada' : '↓ Saída'}
                         </span>
+                        <div className="min-w-0">
+                          <p className="text-sm font-medium text-slate-800 break-words">
+                            {mov.produto?.nome ?? 'Produto removido'}
+                          </p>
+                          <p className="text-xs text-slate-400 break-words">
+                            {mov.quantidade} unidade{mov.quantidade === 1 ? '' : 's'}
+                            {mov.venda?.cliente?.nome ? ` — ${mov.venda.cliente.nome}` : ''}
+                          </p>
+                        </div>
                       </div>
+                      <span className="shrink-0 text-xs text-slate-400">
+                        {formatarData(mov.created_at)}
+                      </span>
                     </li>
                   ))}
                 </ul>

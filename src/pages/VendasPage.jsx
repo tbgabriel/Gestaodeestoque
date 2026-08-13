@@ -50,7 +50,7 @@ export default function VendasPage() {
         </div>
         <Link
           to="/vendas/nova"
-          className="inline-flex justify-center rounded-lg bg-amber-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-amber-700"
+          className="inline-flex min-h-11 items-center justify-center rounded-lg bg-amber-600 px-4 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-amber-700"
         >
           + Nova venda
         </Link>

@@ -129,26 +129,26 @@ export default function GerenciadorItensKit({ kitId }) {
           ) : (
             <ul className="mt-4 divide-y divide-slate-100">
               {itens.map((item) => (
-                <li key={item.id} className="flex items-center justify-between gap-3 py-3">
-                  <div>
-                    <p className="text-sm font-medium text-slate-800">{item.produto.nome}</p>
+                <li key={item.id} className="flex items-center justify-between gap-2 py-3">
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-medium text-slate-800">{item.produto.nome}</p>
                     {item.produto.categoria && (
-                      <p className="text-xs text-slate-400">{item.produto.categoria}</p>
+                      <p className="truncate text-xs text-slate-400">{item.produto.categoria}</p>
                     )}
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex shrink-0 items-center gap-2">
                     <input
                       type="number"
                       min="1"
                       step="1"
                       value={item.quantidade}
                       onChange={(e) => lidarComAtualizarQuantidade(item, e.target.value)}
-                      className="w-16 rounded-lg border border-slate-300 px-2 py-1 text-center text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                      className="min-h-11 w-16 rounded-lg border border-slate-300 px-2 text-center text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
                     />
                     <button
                       type="button"
                       onClick={() => lidarComRemover(item)}
-                      className="rounded-lg border border-red-300 px-2.5 py-1 text-xs font-medium text-red-600 transition-colors hover:bg-red-50"
+                      className="min-h-11 rounded-lg border border-red-300 px-2.5 text-xs font-medium text-red-600 transition-colors hover:bg-red-50"
                     >
                       Remover
                     </button>
@@ -170,7 +170,7 @@ export default function GerenciadorItensKit({ kitId }) {
                 id="produto_kit"
                 value={produtoSelecionado}
                 onChange={(e) => setProdutoSelecionado(e.target.value)}
-                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                className="min-h-11 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
               >
                 <option value="">
                   {produtosParaSelecionar.length === 0
@@ -195,13 +195,13 @@ export default function GerenciadorItensKit({ kitId }) {
                 step="1"
                 value={quantidadeNova}
                 onChange={(e) => setQuantidadeNova(e.target.value)}
-                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                className="min-h-11 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
               />
             </div>
             <button
               type="submit"
               disabled={adicionando || produtosParaSelecionar.length === 0}
-              className="inline-flex justify-center rounded-lg bg-amber-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-amber-700 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="inline-flex min-h-11 items-center justify-center rounded-lg bg-amber-600 px-4 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-amber-700 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {adicionando ? 'Adicionando...' : 'Adicionar'}
             </button>

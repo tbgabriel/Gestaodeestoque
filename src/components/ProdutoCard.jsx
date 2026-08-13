@@ -60,20 +60,20 @@ export default function ProdutoCard({ produto, aoExcluir, aoMovimentar }) {
         <button
           type="button"
           onClick={() => aoMovimentar(produto)}
-          className="whitespace-nowrap rounded-lg border border-amber-300 px-1.5 py-1.5 text-center text-xs font-medium text-amber-700 transition-colors hover:bg-amber-50"
+          className="flex min-h-11 items-center justify-center whitespace-nowrap rounded-lg border border-amber-300 px-1 text-center text-xs font-medium text-amber-700 transition-colors hover:bg-amber-50"
         >
           Movimentar
         </button>
         <Link
           to={`/produtos/${produto.id}/editar`}
-          className="whitespace-nowrap rounded-lg border border-slate-300 px-1.5 py-1.5 text-center text-xs font-medium text-slate-700 transition-colors hover:bg-slate-50"
+          className="flex min-h-11 items-center justify-center whitespace-nowrap rounded-lg border border-slate-300 px-1 text-center text-xs font-medium text-slate-700 transition-colors hover:bg-slate-50"
         >
           Editar
         </Link>
         <button
           type="button"
           onClick={() => aoExcluir(produto)}
-          className="whitespace-nowrap rounded-lg border border-red-300 px-1.5 py-1.5 text-center text-xs font-medium text-red-600 transition-colors hover:bg-red-50"
+          className="flex min-h-11 items-center justify-center whitespace-nowrap rounded-lg border border-red-300 px-1 text-center text-xs font-medium text-red-600 transition-colors hover:bg-red-50"
         >
           Excluir
         </button>

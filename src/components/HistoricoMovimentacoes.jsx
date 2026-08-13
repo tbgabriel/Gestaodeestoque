@@ -53,8 +53,8 @@ export default function HistoricoMovimentacoes({ produtoId }) {
       {!carregando && !erro && movimentacoes.length > 0 && (
         <ul className="mt-4 divide-y divide-slate-100">
           {movimentacoes.map((mov) => (
-            <li key={mov.id} className="flex items-center justify-between gap-3 py-3">
-              <div className="flex items-center gap-3">
+            <li key={mov.id} className="flex flex-col gap-1 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+              <div className="flex min-w-0 items-start gap-3">
                 <span
                   className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold ${
                     mov.tipo === 'entrada'
@@ -64,12 +64,12 @@ export default function HistoricoMovimentacoes({ produtoId }) {
                 >
                   {mov.tipo === 'entrada' ? '↑ Entrada' : '↓ Saída'}
                 </span>
-                <div>
+                <div className="min-w-0">
                   <p className="text-sm font-medium text-slate-800">
                     {mov.quantidade} unidade{mov.quantidade === 1 ? '' : 's'}
                   </p>
                   {mov.observacao && (
-                    <p className="text-xs text-slate-400">{mov.observacao}</p>
+                    <p className="text-xs text-slate-400 break-words">{mov.observacao}</p>
                   )}
                 </div>
               </div>

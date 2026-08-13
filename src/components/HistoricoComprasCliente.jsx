@@ -69,10 +69,10 @@ export default function HistoricoComprasCliente({ clienteId }) {
             <li key={venda.id}>
               <Link
                 to={`/vendas/${venda.id}`}
-                className="flex items-center justify-between gap-3 py-3 transition-colors hover:bg-slate-50"
+                className="flex flex-col gap-1 py-3 transition-colors hover:bg-slate-50 sm:flex-row sm:items-center sm:justify-between sm:gap-3"
               >
-                <div>
-                  <p className="text-sm font-medium text-slate-800">
+                <div className="min-w-0">
+                  <p className="text-sm font-medium text-slate-800 break-words">
                     {venda.itens.map((i) => i.produto.nome).join(', ')}
                   </p>
                   <p className="text-xs text-slate-400">{formatarData(venda.created_at)}</p>

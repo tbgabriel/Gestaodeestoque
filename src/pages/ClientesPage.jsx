@@ -57,7 +57,7 @@ export default function ClientesPage() {
         </div>
         <Link
           to="/clientes/novo"
-          className="inline-flex justify-center rounded-lg bg-amber-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-amber-700"
+          className="inline-flex min-h-11 items-center justify-center rounded-lg bg-amber-600 px-4 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-amber-700"
         >
           + Novo cliente
         </Link>
@@ -100,14 +100,14 @@ export default function ClientesPage() {
                 <div className="flex gap-2">
                   <Link
                     to={`/clientes/${cliente.id}/editar`}
-                    className="flex-1 rounded-lg border border-slate-300 px-3 py-1.5 text-center text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 sm:flex-none"
+                    className="flex min-h-11 flex-1 items-center justify-center rounded-lg border border-slate-300 px-3 text-center text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 sm:flex-none"
                   >
                     Editar
                   </Link>
                   <button
                     type="button"
                     onClick={() => setClienteParaExcluir(cliente)}
-                    className="flex-1 rounded-lg border border-red-300 px-3 py-1.5 text-sm font-medium text-red-600 transition-colors hover:bg-red-50 sm:flex-none"
+                    className="min-h-11 flex-1 rounded-lg border border-red-300 px-3 text-sm font-medium text-red-600 transition-colors hover:bg-red-50 sm:flex-none"
                   >
                     Excluir
                   </button>
