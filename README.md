@@ -27,8 +27,3 @@ Construí esse sistema pra resolver esse problema de verdade — e de quebra, us
 - Tailwind CSS
 - Supabase (banco de dados + autenticação)
 
-6. Rode o projeto:
-
-```bash
-npm run dev
-```
