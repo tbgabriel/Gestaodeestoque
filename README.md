@@ -1,16 +1,59 @@
-# React + Vite
+# Estoque JP
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Sistema de controle de estoque e clientes pra uma revenda de produtos de salão profissionais — feito pra tirar o negócio do caderno de uma vez por todas.
 
-Currently, two official plugins are available:
+## O problema
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Meu padrasto revende produtos de salão profissional (shampoo, coloração, essas coisas) e até pouco tempo atrás controlava tudo... num caderno mesmo. Estoque, cliente, o que vendeu, quanto sobrou — tudo escrito à mão. Funcionava até certo ponto, mas era difícil saber rápido o que tava acabando, fácil perder o controle de quem comprou o quê, e não existia histórico nenhum organizado.
 
-## React Compiler
+Construí esse sistema pra resolver esse problema de verdade — e de quebra, usei como projeto de portfólio pra praticar desenvolvimento junto com o Claude Code, montando tudo do zero (banco de dados, autenticação, interface) numa stack moderna.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## O que o sistema faz
 
-## Expanding the Oxlint configuration
+- Cadastro e controle de produtos, com estoque e alerta visual quando algo tá abaixo do mínimo
+- Produtos do tipo "kit" — ao vender um kit, o sistema desconta automaticamente o estoque de cada item que compõe ele
+- Cadastro de clientes
+- Registro de vendas e movimentações de estoque, vinculando produto e cliente
+- Validação que impede vender mais do que existe em estoque (vale pra produto normal e pros componentes de um kit)
+- Dashboard com resumo geral: total de produtos, itens com estoque baixo, últimas movimentações
+- Login com autenticação de verdade (Supabase Auth + Row Level Security), porque ali dentro tem dado real do negócio
+- Deploy rodando na Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+<!-- adicionar prints/gif do sistema aqui -->
+
+## Tecnologias
+
+- React + Vite
+- Tailwind CSS
+- Supabase (banco de dados + autenticação)
+
+## Como rodar localmente
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/tbgabriel/Gestaodeestoque.git
+cd Gestaodeestoque
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Configure as variáveis de ambiente — copie o `.env.example` pra um `.env` e preencha com a URL e a chave `anon` do seu projeto Supabase:
+
+```bash
+cp .env.example .env
+```
+
+4. Crie as tabelas no banco: rode os scripts SQL que estão na pasta `supabase/` no SQL Editor do seu projeto Supabase (na ordem em que aparecem lá).
+
+5. Crie seu usuário de login direto no painel do Supabase (Authentication → Users → Add user) — não tem tela de cadastro no sistema, os usuários são criados manualmente mesmo.
+
+6. Rode o projeto:
+
+```bash
+npm run dev
+```
