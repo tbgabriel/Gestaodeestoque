@@ -19,10 +19,10 @@ Construí esse sistema pra resolver esse problema de verdade — e de quebra, us
 - Login com autenticação de verdade (Supabase Auth + Row Level Security), porque ali dentro tem dado real do negócio
 - Deploy rodando na Vercel
 
-<<img width="1184" height="595" alt="image" src="https://github.com/user-attachments/assets/7a381541-7f94-4ce0-be27-852dcc7f54c8" />
-!-<img width="1156" height="345" alt="image" src="https://github.com/user-attachments/assets/99b3dd4b-22a3-4b71-b20c-e35731c1c484" />
-- adici<img width="1165" height="466" alt="image" src="https://github.com/user-attachments/assets/274158fd-49e5-4cd7-8362-b40d045c785d" />
-onar prints/gif do sistema aqui -->
+<img width="1184" height="595" alt="image" src="https://github.com/user-attachments/assets/7a381541-7f94-4ce0-be27-852dcc7f54c8" />
+<img width="1156" height="345" alt="image" src="https://github.com/user-attachments/assets/99b3dd4b-22a3-4b71-b20c-e35731c1c484" />
+<img width="1165" height="466" alt="image" src="https://github.com/user-attachments/assets/274158fd-49e5-4cd7-8362-b40d045c785d" />
+
 
 ## Tecnologias
 
