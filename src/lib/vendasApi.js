@@ -25,7 +25,7 @@ export async function buscarVenda(id) {
   const { data, error } = await supabase
     .from('vendas')
     .select(
-      'id, total, observacao, created_at, cliente:cliente_id (id, nome, telefone), itens:venda_itens (id, quantidade, preco_unitario, subtotal, produto:produto_id (id, nome))'
+      'id, total, observacao, created_at, cliente:cliente_id (id, nome, telefone), itens:venda_itens (id, quantidade, preco_unitario, subtotal, produto:produto_id (id, nome, eh_kit))'
     )
     .eq('id', id)
     .single()

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { buscarVenda } from '../lib/vendasApi'
+import RomaneioModal from '../components/RomaneioModal'
 
 function formatarMoeda(valor) {
   return (valor || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
@@ -21,6 +22,7 @@ export default function VendaDetalhesPage() {
   const [venda, setVenda] = useState(null)
   const [carregando, setCarregando] = useState(true)
   const [erro, setErro] = useState('')
+  const [mostrarRomaneio, setMostrarRomaneio] = useState(false)
 
   useEffect(() => {
     async function carregar() {
@@ -44,7 +46,18 @@ export default function VendaDetalhesPage() {
       <Link to="/vendas" className="text-sm text-slate-500 transition-colors hover:text-slate-700">
         ← Voltar para vendas
       </Link>
-      <h1 className="mt-2 text-2xl font-bold text-slate-900">Detalhes da venda</h1>
+      <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
+        <h1 className="text-2xl font-bold text-slate-900">Detalhes da venda</h1>
+        {!carregando && venda && (
+          <button
+            type="button"
+            onClick={() => setMostrarRomaneio(true)}
+            className="min-h-11 rounded-lg border border-amber-300 bg-amber-50 px-4 text-sm font-semibold text-amber-700 transition-colors hover:bg-amber-100"
+          >
+            Gerar romaneio
+          </button>
+        )}
+      </div>
 
       {carregando && <p className="mt-6 text-sm text-slate-500">Carregando...</p>}
 
@@ -104,6 +117,10 @@ export default function VendaDetalhesPage() {
             </div>
           </div>
         </div>
+      )}
+
+      {mostrarRomaneio && (
+        <RomaneioModal venda={venda} aoFechar={() => setMostrarRomaneio(false)} />
       )}
     </div>
   )

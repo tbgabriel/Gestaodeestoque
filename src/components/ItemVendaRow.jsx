@@ -5,6 +5,13 @@ function formatarMoeda(valor) {
 export default function ItemVendaRow({ item, produtos, aoAtualizar, aoRemover }) {
   const subtotal = (Number(item.quantidade) || 0) * (Number(item.preco_unitario) || 0)
 
+  const produtoSelecionado = produtos.find((p) => p.id === item.produto_id)
+  const precoTabela = produtoSelecionado?.preco_venda
+  const precoAlterado =
+    produtoSelecionado != null &&
+    precoTabela != null &&
+    Number(item.preco_unitario) !== Number(precoTabela)
+
   function lidarComTrocaProduto(produtoId) {
     const produto = produtos.find((p) => p.id === produtoId)
     aoAtualizar({
@@ -47,14 +54,26 @@ export default function ItemVendaRow({ item, produtos, aoAtualizar, aoRemover })
           </div>
 
           <div className="sm:w-32">
-            <label className="block text-xs font-medium text-slate-500 mb-1">Preço unit. (R$)</label>
+            <label className="flex flex-wrap items-center gap-1 text-xs font-medium text-slate-500 mb-1">
+              Preço unit. (R$)
+              {precoAlterado && (
+                <span
+                  title={`Preço de tabela: ${formatarMoeda(precoTabela)}`}
+                  className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-amber-600"
+                >
+                  ✎ alterado
+                </span>
+              )}
+            </label>
             <input
               type="number"
               min="0"
               step="0.01"
               value={item.preco_unitario}
               onChange={(e) => aoAtualizar({ ...item, preco_unitario: e.target.value })}
-              className="min-h-11 w-full rounded-lg border border-slate-300 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+              className={`min-h-11 w-full rounded-lg border px-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 ${
+                precoAlterado ? 'border-amber-400 bg-amber-50' : 'border-slate-300'
+              }`}
             />
           </div>
         </div>
