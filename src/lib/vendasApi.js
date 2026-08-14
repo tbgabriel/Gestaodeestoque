@@ -21,6 +21,23 @@ export async function listarVendasPorCliente(clienteId) {
   return data
 }
 
+export async function listarVendasPorMes(ano, mes) {
+  const inicio = new Date(ano, mes - 1, 1)
+  const fim = new Date(ano, mes, 1)
+
+  const { data, error } = await supabase
+    .from('vendas')
+    .select(
+      'id, total, created_at, cliente:cliente_id (id, nome), itens:venda_itens (id, quantidade, produto:produto_id (id, nome))'
+    )
+    .gte('created_at', inicio.toISOString())
+    .lt('created_at', fim.toISOString())
+    .order('created_at', { ascending: false })
+
+  if (error) throw error
+  return data
+}
+
 export async function buscarVenda(id) {
   const { data, error } = await supabase
     .from('vendas')

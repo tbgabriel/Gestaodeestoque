@@ -11,6 +11,7 @@ const itensNav = [
   { to: '/produtos', label: 'Produtos' },
   { to: '/clientes', label: 'Clientes' },
   { to: '/vendas', label: 'Vendas' },
+  { to: '/relatorios/mensal', label: 'Relatório mensal' },
 ]
 
 function IconeMenu() {
@@ -38,7 +39,7 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <header className="border-b border-slate-200 bg-white">
+      <header className="border-b border-slate-200 bg-white print:hidden">
         <div className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-3 sm:px-6">
           <span className="mr-2 font-semibold text-slate-900">Estoque JP</span>
 

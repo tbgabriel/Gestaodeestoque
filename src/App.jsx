@@ -12,6 +12,7 @@ import EditarClientePage from './pages/EditarClientePage'
 import VendasPage from './pages/VendasPage'
 import NovaVendaPage from './pages/NovaVendaPage'
 import VendaDetalhesPage from './pages/VendaDetalhesPage'
+import RelatorioMensalPage from './pages/RelatorioMensalPage'
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/vendas" element={<VendasPage />} />
           <Route path="/vendas/nova" element={<NovaVendaPage />} />
           <Route path="/vendas/:id" element={<VendaDetalhesPage />} />
+          <Route path="/relatorios/mensal" element={<RelatorioMensalPage />} />
         </Route>
       </Route>
     </Routes>
